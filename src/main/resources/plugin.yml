@@ -1,0 +1,3 @@
+name: IssueTracker
+version: '${project.version}'
+main: com.grradis.issuetracker.Main
