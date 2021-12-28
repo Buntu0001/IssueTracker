@@ -16,9 +16,6 @@ public final class Main extends JavaPlugin {
     Bukkit.getLogger().info(Util.translate("&a플러그인 폴더를 확인합니다..."));
     initFolder();
     Util.plugin = this;
-    HashMap<String, String> tee = new HashMap<>();
-    tee.put("hi", "hi222");
-    IssueHandler.SendError("test", "testFunc", tee, "stackk");
   }
 
   @Override
@@ -32,5 +29,10 @@ public final class Main extends JavaPlugin {
       Bukkit.getLogger().info(Util.translate("&c플러그인 폴더를 만듭니다..."));
       pluginFolder.mkdir();
     }
+  }
+
+  public static void SendError(String plugin, String func, HashMap<String, String> var, String stack) {
+    ErrorLog log = new ErrorLog(plugin, func, var, stack);
+    IssueCommitter.CommitIssue(log);
   }
 }
